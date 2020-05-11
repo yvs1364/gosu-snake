@@ -3,7 +3,6 @@ require_relative "snake"
 require_relative "food"
 
 class Game < Gosu::Window
-  START_SPEED = 0.3
   def initialize
     super 640, 480
     self.caption = "GOSU SNAKE"
@@ -43,6 +42,13 @@ class Game < Gosu::Window
 
   def reset_food
     @food = Food.new
+    @snake.length += 1
+    @snake.speed += 0.50
+    sound("eat").play
+  end
+
+  def sound(type)
+    Gosu::Sample.new File.join(__dir__, "#{type}.wav")
   end
 end
 

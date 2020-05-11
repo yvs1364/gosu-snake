@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Food
   SIZE = 20
   attr_accessor :x, :y
@@ -7,7 +9,7 @@ class Food
   end
 
   def position_food
-    @x = rand * 640 
+    @x = rand * 640
     @y = rand * 480
   end
 
