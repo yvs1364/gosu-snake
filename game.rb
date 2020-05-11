@@ -19,7 +19,7 @@ class Game < Gosu::Window
   def draw
     @snake.draw
     @food.draw
-    @font.draw_text("Score: #{@snake.score}", 0, 0, 1, 1.0, 1.0, Gosu::Color::YELLOW)
+    @font.draw_text("Score: #{@snake.score}", 1, 1, 1, 1.0, 1.0, Gosu::Color::YELLOW)
   end
 
   def button_down(id)

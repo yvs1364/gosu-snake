@@ -43,8 +43,6 @@ class Snake
 
   def draw
     Gosu.draw_rect(@x, @y, SIZE, SIZE, Gosu::Color::WHITE)
-    @body.each do |body|
-      Gosu.draw_rect(body.first, body.last, SIZE, SIZE, Gosu::Color::WHITE)
-    end
+    @body.each { |body| Gosu.draw_rect(body.first, body.last, SIZE, SIZE, Gosu::Color::WHITE) }
   end
 end
