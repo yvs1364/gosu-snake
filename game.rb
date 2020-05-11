@@ -1,12 +1,14 @@
-require "gosu"
-require_relative "snake"
-require_relative "food"
+# frozen_string_literal: true
+
+require 'gosu'
+require_relative 'snake'
+require_relative 'food'
 
 class Game < Gosu::Window
   def initialize
     super 640, 480
-    self.caption = "GOSU SNAKE"
-    @snake = Snake.new
+    self.caption = 'GOSU SNAKE'
+    reset_snake
     @food = Food.new
     @font = Gosu::Font.new(20)
   end
@@ -32,6 +34,12 @@ class Game < Gosu::Window
 
   private
 
+  def reset_snake
+    @snake = Snake.new
+    @speed
+    sound('start').play
+  end
+
   def snake_move
     @snake.turn_right if button_down? Gosu::KB_RIGHT
     @snake.turn_left if button_down? Gosu::KB_LEFT
@@ -44,7 +52,7 @@ class Game < Gosu::Window
     @food = Food.new
     @snake.length += 1
     @snake.speed += 0.50
-    sound("eat").play
+    sound('eat').play
   end
 
   def sound(type)
